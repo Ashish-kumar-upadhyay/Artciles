@@ -1,0 +1,206 @@
+.user-page-container {
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 0 32px 0;
+  background: none;
+}
+
+.user-gradient-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 2.5rem;
+  background: linear-gradient(90deg, #ffcc00, #ff5e62, #4fd1c5, #ffcc00);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  animation: gradientMove 3s ease-in-out infinite, fadeIn 1s;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.user-articles-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.user-article-card {
+  background: rgba(255,255,255,0.18);
+  border-radius: 22px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  border: 1.5px solid rgba(255,255,255,0.18);
+  padding: 2rem 2.2rem 1.5rem 2.2rem;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.25s, box-shadow 0.25s, background 0.3s;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  overflow: hidden;
+}
+.user-article-card:hover {
+  transform: translateY(-6px) scale(1.012);
+  box-shadow: 0 12px 36px 0 #ffcc0030, 0 8px 32px 0 #ff5e6230;
+  background: rgba(255,255,255,0.28);
+}
+
+.user-article-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #2d3748;
+  letter-spacing: 1px;
+}
+
+.user-article-content {
+  font-size: 1.08rem;
+  color: #222b;
+  margin-bottom: 0.7rem;
+}
+
+.user-article-meta {
+  font-size: 0.98rem;
+  color: #444b;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.user-like-btn {
+  margin-top: 0.5rem;
+  padding: 8px 22px;
+  border-radius: 30px;
+  border: none;
+  font-size: 1.08rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, #ff5e62 0%, #ffcc00 100%);
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(255, 94, 98, 0.12);
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.user-like-btn.liked {
+  background: linear-gradient(90deg, #bdbdbd 0%, #ffcc00 100%);
+  color: #222;
+}
+.user-like-btn:hover {
+  background: linear-gradient(90deg, #ffcc00 0%, #ff5e62 100%);
+  color: #222;
+  transform: scale(1.06) translateY(-2px);
+  box-shadow: 0 4px 18px #ffcc0050, 0 2px 16px #ff5e6290;
+}
+
+.user-comment-section {
+  margin-top: 1.2rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.user-comment-input {
+  flex: 1;
+  padding: 8px 14px;
+  border-radius: 18px;
+  border: 1.5px solid #e2e8f0;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+  background: rgba(255,255,255,0.7);
+}
+.user-comment-input:focus {
+  border: 1.5px solid #ffcc00;
+}
+
+.user-comment-btn {
+  padding: 7px 18px;
+  border-radius: 20px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, #4fd1c5 0%, #ffcc00 100%);
+  color: #222;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+}
+.user-comment-btn:hover {
+  background: linear-gradient(90deg, #ffcc00 0%, #4fd1c5 100%);
+  color: #222;
+  transform: scale(1.05);
+}
+
+.user-comments-list {
+  margin-top: 1.2rem;
+  padding-left: 0.5rem;
+}
+.user-comments-list ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.3rem 0 0 0;
+}
+.user-comment-item {
+  padding: 7px 0 7px 0;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.98rem;
+  color: #2d3748;
+}
+
+.user-loading {
+  color: #2d3748;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  text-align: center;
+  animation: fadeIn 1s;
+}
+
+@media (max-width: 900px) {
+  .user-page-container {
+    padding: 32px 0 24px 0;
+  }
+  .user-articles-list {
+    max-width: 98vw;
+  }
+  .user-article-card {
+    padding: 1.2rem 1rem 1rem 1rem;
+  }
+  .user-gradient-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .user-page-container {
+    padding: 18px 0 12px 0;
+  }
+  .user-articles-list {
+    gap: 1.1rem;
+  }
+  .user-article-card {
+    padding: 0.8rem 0.5rem 0.7rem 0.5rem;
+  }
+  .user-gradient-title {
+    font-size: 1.3rem;
+  }
+} 
